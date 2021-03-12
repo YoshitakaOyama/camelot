@@ -351,6 +351,10 @@ class Table(object):
         self.order = None
         self.page = None
 
+        self._horizontal_text = None
+        self._vertical_text = None
+        self._bbox = None
+
     def __repr__(self):
         return "<{} shape={}>".format(self.__class__.__name__, self.shape)
 
@@ -360,6 +364,18 @@ class Table(object):
                 return True
         if self.page < other.page:
             return True
+
+    @property
+    def horizontal_text(self):
+        return self._horizontal_text
+
+    @property
+    def vertical_text(self):
+        return self._vertical_text
+
+    @property
+    def bbox(self):
+        return self._bbox
 
     @property
     def data(self):
